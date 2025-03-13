@@ -3,3 +3,6 @@ project:
 
 editor: visual
 
+format:
+  html:
+    self-contained: true

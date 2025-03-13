@@ -1,11 +1,45 @@
 ---
-title: "lab-4"
+title: Lab 4
+author: Rachel Delorie
+date: "2025-03-13"
+format: html
+execute:
+  echo: true
 ---
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+```{r}
+# setup
+remotes::install_github("lter/lterdatasampler")
+library(tidyverse)
+library(ggpubr)
+library(lterdatasampler)
+library(car)
+library(visdat)
+?and_vertebrates
+```
 
 ```{r}
-1 + 1
+# Exercises Part 1 
+
+# First clean the dataset to create the contingency table from
+salamander_clean <- and_vertebrates %>%  
+  #filter coastal salamanders
+  filter(species == "Coastal giant salamander") %>% 
+  drop_na(unittype, section)
+
+cont_table <- table(salamander_clean$section, salamander_clean$unittype)
+
+chisq.test(cont_table)
+
+# report: The chi-square test for independence revealed a significant relationship between **forest type (section)** and **channel unit type (unittype)** for **Coastal giant salamander abundance** (χ² = 200.71, **df** = 5, *p* < 0.001). This result suggests that salamander abundance varies significantly across different channel unit types depending on the forest type.
+
+cc_weight <- salamander_clean %>%  
+  filter(section == "CC") %>%  
+  pull(weight_g)
+
+og_weight <- salamander_clean %>% 
+  filter(section == "OG") %>% 
+  pull(weight_g)
+
+var.test(cc_weight, og_weight)
 ```
+
