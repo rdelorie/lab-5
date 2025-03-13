@@ -1,5 +1,9 @@
 project:
+  type: manuscript
   title: "My Paper"
-
+  
+format:
+  html:
+    self-contained: true
 
 

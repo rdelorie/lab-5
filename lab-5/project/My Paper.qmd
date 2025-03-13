@@ -1,17 +1,5 @@
 ---
-title: My Project Paper
-authors:
-  - name: Rachel Delorie
-    affiliation: Colorado State University
-    roles: writing
-    corresponding: true
-     - name: Bella Conrad
-    affiliation: Colorado State University
-    roles: writing
-    corresponding: false
-     - name: Zachary Cramton
-    affiliation: Colorado State University
-    roles: writing
-    corresponding: false
-bibliography: references.bib
+title: "My Paper"
+execute:
+  echo: true
 ---
