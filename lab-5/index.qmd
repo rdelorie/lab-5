@@ -14,4 +14,5 @@ authors:
     roles: writing
     corresponding: false
 bibliography: references.bib
+csl: apa.csl
 ---
